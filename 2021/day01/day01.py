@@ -23,6 +23,17 @@ def depth_diff(list):
             count = count + 1
     return count
 
+# PART 2
 
-print(depth_diff(read_data()))
+# turn depths into sliding groups
+depth_groups = []
+for i in range(len(read_data())):
+    depth_groups.append(read_data()[i:i+3])
 
+# find sum of each group
+sum_groups = []
+for i in depth_groups:
+    sum_groups.append(sum(i))
+
+# call function from part 1 to find number of sums increased
+print(depth_diff(sum_groups))
